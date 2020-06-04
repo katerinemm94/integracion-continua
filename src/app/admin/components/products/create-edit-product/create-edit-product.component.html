@@ -1,0 +1,218 @@
+<div class="row">
+  <!-- Area Chart -->
+  <div class="col-md-12">
+    <form nz-form [formGroup]="validateForm" (ngSubmit)="formSubmitSubject$.next(null)">
+      <div class="card shadow mb-4">
+        <!-- Card Header - Dropdown -->
+        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+          <h6 class="m-0 font-weight-bold text-primary">
+            {{ textoTituloFormulario }}
+          </h6>
+          <p class="text-danger">Todos los campos marcados con <b>*</b> son requeridos.</p>
+        </div>
+        <!-- Card Body -->
+
+        <div class="card-body">
+
+          <div class="row">
+            <div class="col-md-6">
+
+              <div class="row">
+                <div class="col-md-6 space-bottom">
+                  <nz-form-item>
+                    <nz-form-label [nzSpan]="null">Código del producto</nz-form-label>
+                    <nz-form-control [nzSpan]="null" nzHasFeedback>
+                      <input class="text-uppercase" nz-input formControlName="code" placeholder="Ejm: JUAHSI9865" />
+                      <nz-form-explain *ngIf="validateForm.get('code')?.dirty && validateForm.get('code')?.errors">
+                        <ng-container *ngIf="validateForm.get('code')?.hasError('maxlength')">
+                          {{ generalMessages.maxlength }}
+                        </ng-container>
+                        <ng-container *ngIf="validateForm.get('code')?.hasError('codeTaken')">
+                          El código del producto ya existe, intente con otro.
+                        </ng-container>
+                      </nz-form-explain>
+                    </nz-form-control>
+                  </nz-form-item>
+                </div>
+
+                <div class="col-md-6 space-bottom">
+                  <nz-form-item>
+                    <nz-form-label [nzSpan]="null" nzRequired>Nombre</nz-form-label>
+                    <nz-form-control [nzSpan]="null" nzHasFeedback>
+                      <input nz-input formControlName="description" placeholder="Ejm: Juguete Avengers" />
+                      <nz-form-explain
+                        *ngIf="validateForm.get('description')?.dirty && validateForm.get('description')?.errors">
+                        <ng-container *ngIf="validateForm.get('description')?.hasError('required')">
+                          {{ generalMessages.required }}
+                        </ng-container>
+                        <ng-container *ngIf="validateForm.get('description')?.hasError('maxlength')">
+                          {{ generalMessages.maxlength }}
+                        </ng-container>
+                      </nz-form-explain>
+                    </nz-form-control>
+                  </nz-form-item>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6 space-bottom">
+                  <nz-form-item>
+                    <nz-form-label [nzSpan]="null" nzRequired>Precio por unidad</nz-form-label>
+                    <nz-form-control [nzSpan]="null" nzHasFeedback>
+                      <input nz-input formControlName="unitPrice" placeholder="Ejm: 10" />
+                      <nz-form-explain
+                        *ngIf="validateForm.get('unitPrice')?.dirty && validateForm.get('unitPrice')?.errors">
+                        <ng-container *ngIf="validateForm.get('unitPrice')?.hasError('required')">
+                          {{ generalMessages.required }}
+                        </ng-container>
+                        <ng-container *ngIf="validateForm.get('unitPrice')?.hasError('maxlength')">
+                          {{ generalMessages.maxlength }}
+                        </ng-container>
+                        <ng-container *ngIf="validateForm.get('unitPrice')?.hasError('decimalesInvalidos')">
+                          {{generalMessages.decimalesInvalidos}}
+                        </ng-container>
+                      </nz-form-explain>
+                    </nz-form-control>
+                  </nz-form-item>
+                </div>
+
+                <div class="col-md-6 space-bottom">
+                  <nz-form-item>
+                    <nz-form-label [nzSpan]="null" nzRequired>Cantidad de productos por caja</nz-form-label>
+                    <nz-form-control [nzSpan]="null" nzHasFeedback>
+                      <input nz-input formControlName="quantityPerBox" placeholder="Ejm: 10" />
+                      <nz-form-explain
+                        *ngIf="validateForm.get('quantityPerBox')?.dirty && validateForm.get('quantityPerBox')?.errors">
+                        <ng-container *ngIf="validateForm.get('quantityPerBox')?.hasError('required')">
+                          {{ generalMessages.required }}
+                        </ng-container>
+                        <ng-container *ngIf="validateForm.get('quantityPerBox')?.hasError('campoNumericoInvalido')">
+                          {{generalMessages.campoNumericoInvalido}}
+                        </ng-container>
+                      </nz-form-explain>
+                    </nz-form-control>
+                  </nz-form-item>
+                </div>
+              </div>
+
+              <div class="row">
+
+                <div class="col-md-6 space-bottom">
+                  <nz-form-item>
+                    <nz-form-label [nzSpan]="null" nzRequired>Precio por caja</nz-form-label>
+                    <nz-form-control [nzSpan]="null" nzHasFeedback>
+                      <input nz-input formControlName="boxPrice" placeholder="Ejm: 10" />
+                      <nz-form-explain
+                        *ngIf="validateForm.get('boxPrice')?.dirty && validateForm.get('boxPrice')?.errors">
+                        <ng-container *ngIf="validateForm.get('boxPrice')?.hasError('required')">
+                          {{ generalMessages.required }}
+                        </ng-container>
+                        <ng-container *ngIf="validateForm.get('boxPrice')?.hasError('maxlength')">
+                          {{ generalMessages.maxlength }}
+                        </ng-container>
+                        <ng-container *ngIf="validateForm.get('boxPrice')?.hasError('decimalesInvalidos')">
+                          {{generalMessages.decimalesInvalidos}}
+                        </ng-container>
+                      </nz-form-explain>
+                    </nz-form-control>
+                  </nz-form-item>
+                </div>
+
+                <div class="col-md-6 space-bottom">
+                  <nz-form-item>
+                    <nz-form-label nzRequired>Tipo de empaque</nz-form-label>
+                    <nz-form-control nzHasFeedback>
+                      <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Seleccionar tipo de empaque"
+                        formControlName="packagingType">
+                        <nz-option *ngFor="let item of packagingTypes" [nzLabel]="item.description" [nzValue]="item.id">
+                        </nz-option>
+                      </nz-select>
+
+                      <nz-form-explain
+                        *ngIf="validateForm.get('packagingType')?.dirty && validateForm.get('packagingType')?.errors">
+                        <ng-container *ngIf="validateForm.get('packagingType')?.hasError('required')">
+                          {{ generalMessages.required }}
+                        </ng-container>
+                        <ng-container *ngIf="validateForm.get('packagingType')?.hasError('campoNumericoInvalido')">
+                          {{ generalMessages.campoNumericoInvalido }}
+                        </ng-container>
+                      </nz-form-explain>
+                    </nz-form-control>
+                  </nz-form-item>
+                </div>
+
+              </div>
+              
+              <div class="row">
+                <div class="col-md-6 space-bottom">
+                  <nz-form-item>
+                    <nz-form-label [nzSpan]="null">Número de modelos por caja</nz-form-label>
+
+                    <nz-form-control [nzSpan]="null" nzHasFeedback>
+                      <input nz-input type="number" formControlName="numberModels" placeholder="Ejm: 24.8" />
+                      <nz-form-explain
+                        *ngIf="validateForm.get('numberModels')?.dirty && validateForm.get('numberModels')?.errors">
+                        <ng-container *ngIf="validateForm.get('numberModels')?.hasError('campoNumericoInvalido')">
+                          {{ generalMessages.campoNumericoInvalido }}
+                        </ng-container>
+                      </nz-form-explain>
+                    </nz-form-control>
+                  </nz-form-item>
+                </div>
+
+                <div class="col-md-6 space-bottom">
+                  <nz-form-item>
+                    <nz-form-label [nzSpan]="null">Notas</nz-form-label>
+                    <nz-form-control [nzSpan]="null">
+                      <textarea formControlName="notes" nz-input rows="2"
+                        placeholder="Ejm: Notas informativas"></textarea>
+                      <nz-form-explain
+                        *ngIf="validateForm.get('notes')?.dirty && validateForm.get('notes')?.hasError('maxlength')">
+                        {{ generalMessages.maxlength }}
+                      </nz-form-explain>
+                    </nz-form-control>
+                  </nz-form-item>
+                </div>
+              </div>
+
+            </div>
+            <div class="col-md-6">
+
+              <div class="row">
+                <div class="col-md-12">
+                  <h4 nz-title>Imagen del producto</h4>
+                  <ngx-img #fotoProducto (onSelect)="onSelect($event)" (onReset)="reset()" [text]="textoCropper"
+                    [config]="opcionesCropper" [errorTexts]="erroresCropper">
+                  </ngx-img>
+                </div>
+                <div class="col-md-12">
+                  <div *ngIf="imagenSrc.length" class="container mt-3">
+                    <h4 nz-title>Previsualización</h4>
+                    <div class="row">
+                      <div *ngFor="let img of imagenSrc" class="col-md-6">
+                        <img class="img-fluid" [src]="img">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+        <div class="card-footer">
+          <div class="row">
+            <div class="offset-md-7 col-md-3 space-bottom">
+              <button class="btn btn-block btn-light" (click)="resetForm($event)">Restablecer</button>
+            </div>
+            <div class="col-md-2 space-bottom">
+              <button class="btn btn-block btn-primary">Guardar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

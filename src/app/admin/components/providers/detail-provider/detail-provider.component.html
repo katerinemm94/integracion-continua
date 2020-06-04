@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="col-md-6">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item"><b>Notas:</b> {{provider.notes}}</li>
+    </ul>
+  </div> 
+  <div class="col-md-6">
+
+    <img width="130px" height="130px" *ngIf="imageBlobUrl" [src]="imageBlobUrl" [alt]="provider.name">
+
+  </div>
+
+</div>

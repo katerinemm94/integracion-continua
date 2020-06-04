@@ -1,0 +1,58 @@
+.no-data-available {
+    text-align: center;
+}
+
+
+/*
+src/styles.css (i.e. your global style)
+*/
+
+.dataTables_empty {
+    display: none;
+}
+
+div.dt-buttons {
+    clear: both;
+    margin: 15px 0 15px 0;
+}
+
+.dataTables_filter {
+    float: right;
+}
+
+.dataTables_length {
+    float: left;
+}
+
+.help-block-validation {
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    color: #a94442;
+}
+
+.btn-table-options {
+    margin: 0px 5px 0px 0px;
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+    .table-custom {
+        width: 100% !important;
+    }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+    .table-custom {
+        width: 100% !important;
+    }
+}
+
+.sidebar-dark .nav-item .nav-link.active {
+    color: #fff !important;
+}
+
+.sidebar-dark .nav-item .nav-link.active .fas {
+    color: #fff !important;
+}

@@ -1,0 +1,102 @@
+<!-- Page Heading -->
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+  <h1 class="h3 mb-0 text-gray-800">Proveedores</h1>
+  <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+          class="fas fa-home fa-sm text-white-50"></i> Módulo Maestros</a>
+</div>
+
+<app-create-edit-provider (providerSaved)="loadEmitSaved()" (providerEditClear)="providerEditClear()"
+  [providerEdit]="providerEdit">
+</app-create-edit-provider>
+
+
+<div class="row">
+  <div class="col-md-12">
+      <div class="card shadow mb-4">
+          <!-- Card Header - Dropdown -->
+          <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+              <h6 class="m-0 font-weight-bold text-primary">
+                  Listado de proveedores
+              </h6>
+          </div>
+          <!-- Card Body -->
+          <div class="card-body">
+              <div class="table-responsive">
+                  <table class="table table-hover table-custom" datatable [dtOptions]="dtOptions"
+                      [dtTrigger]="dtTrigger">
+                      <thead>
+                          <tr class="text-center">
+                              <th></th>
+                              <th>Código</th>
+                              <th>Nombre</th>
+                              <th>Ciudad</th>
+                              <th>País</th>
+                              <th>Whatsapp</th>
+                              <th>Teléfono</th>
+                              <th>Estado</th>
+                          </tr>
+                      </thead>
+                      <tbody *ngIf="providers.length > 0">
+                          <tr class="text-center" #trRef *ngFor="let provider of providers; trackBy:trackByFn">
+                              <td>
+                                  <div class="row">
+                                      <div class="col-md-12">
+                                          <div class="btn-group btn-group-sm" role="group" aria-label="Opciones">
+                                              <button type="button" class="btn btn-info"
+                                                  (click)="expandRow(trRef, provider)">
+                                                  <i class="fa fa-info-circle"></i>
+                                              </button>
+                                              <button type="button" class="btn btn-primary"
+                                                  (click)="setProviderEdit(provider)">
+                                                  <i class="fa fa-pen"></i>
+                                              </button>
+                                              <button type="button" class="btn btn-light"
+                                                  (click)="changeStatus(provider)">
+                                                  <i class=" fa fa-check-circle" *ngIf="!provider.status ">
+                                                  </i>
+                                                  <i class="fa fa-times-circle" *ngIf="provider.status ">
+                                                  </i>
+                                              </button>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </td>
+
+                              <td>{{ provider.code }}</td>
+                              <td>{{ provider.name }}</td>
+                              <td>{{ provider.city }}</td>
+                              <td>{{ provider.country }}</td>
+                              <td>{{ provider.whatsapp }}</td>
+                              <td>{{ provider.telephone }}</td>
+                              <td>
+                                  <label *ngIf="provider.status" class="badge badge-light ">Disponible</label>
+                                  <label *ngIf="!provider.status " class="badge badge-primary ">Inactivo</label>
+                              </td>
+                          </tr>
+                      </tbody>
+                      <tbody *ngIf="providers.length===0 ">
+                          <tr class="text-center ">
+                              <td colspan="8">
+                                  <div class="row ">
+                                      <div class="col-md-12 ">
+                                          <p>
+                                              No existen datos para mostrar.
+                                          </p>
+                                      </div>
+                                  </div>
+                              </td>
+                              <td style="display: none; "></td>
+                              <td style="display: none; "></td>
+                              <td style="display: none; "></td>
+                              <td style="display: none; "></td>
+                              <td style="display: none; "></td>
+                              <td style="display: none; "></td>
+                              <td style="display: none; "></td>
+                          </tr>
+                      </tbody>
+                  </table>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

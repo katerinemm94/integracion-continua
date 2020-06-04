@@ -1,0 +1,72 @@
+<div class="container vertical-center">
+
+  <!-- Outer Row -->
+  <div class="row justify-content-center">
+
+    <div class="col-xl-10 col-lg-12 col-md-9">
+
+      <div class="card o-hidden border-0 shadow-lg my-5">
+        <div class="card-body p-0">
+          <!-- Nested Row within Card Body -->
+          <div class="row">
+            <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+            <div class="col-lg-6">
+              <div class="p-5">
+                <div class="text-center">
+                  <h1 class="h4 text-gray-900 mb-4">{{nombreAplicacion}}</h1>
+                </div>
+                <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                  <div class="form-group">
+                    <input type="text" formControlName="userName" class="form-control form-control-user"
+                      placeholder="Ejm: usuario1">
+                    <p class="help-block-validation"
+                      *ngIf="(loginForm.get('userName')?.dirty && loginForm.get('userName')?.errors)">
+                      <span *ngIf="loginForm.get('userName')?.hasError('required')">
+                        El usuario es requerido.
+                      </span>
+                      <span *ngIf="loginForm.get('userName')?.hasError('maxlength')">
+                        El usuario debe tener máximo 100 caracteres.
+                      </span>
+                    </p>
+                  </div>
+                  <div class="form-group">
+                    <input type="password" formControlName="password" class="form-control form-control-user"
+                      placeholder="Ejm: 123">
+
+                      <p class="help-block-validation"
+                      *ngIf="(loginForm.get('password')?.dirty && loginForm.get('password')?.errors)">
+                      <span *ngIf="loginForm.get('password')?.hasError('required')">
+                        La contraseña es requerida.
+                      </span>
+                      <span *ngIf="loginForm.get('password')?.hasError('maxlength')">
+                        La contraseña debe tener máximo 100 caracteres.
+                      </span>
+                    </p>
+                  </div>
+
+                  <button type="submit" class="btn btn-primary btn-user btn-block">
+                    Iniciar Sesión
+                  </button>
+
+                  <hr>
+
+                  <div *ngIf="isLoginFailed" class="alert alert-danger">
+                    {{errorMessage}}
+                  </div>
+
+                </form>
+                <hr>
+                <div class="text-center">
+                  <a class="small" href="forgot-password.html">¿Olvidaste la contraseña?</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

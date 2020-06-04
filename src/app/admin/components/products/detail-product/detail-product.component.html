@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="col-md-6">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item"><b>Tipo de empaque:</b> {{product.packagingType}}</li>
+      <li class="list-group-item"><b>Número de modelos por caja:</b> {{product.numberModels}}</li>
+      <li class="list-group-item"><b>Notas:</b> {{product.notes}}</li>
+    </ul>
+  </div> 
+  <div class="col-md-6">
+
+    <img *ngIf="imageBlobUrl" [src]="imageBlobUrl" [alt]="product.description">
+
+  </div>
+
+</div>

@@ -23,7 +23,6 @@ export class Provider {
 
     createdAt?: any;
     updatedAt?: any;
-    userId: number;
 
     constructor() {
         this.code = '';
@@ -35,7 +34,6 @@ export class Provider {
         this.notes = null;
         this.primaryPhotoURL = null;
         this.status = true;
-        this.userId = 1;
     }
 }
 

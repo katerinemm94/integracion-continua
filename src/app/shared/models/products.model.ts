@@ -40,7 +40,6 @@ export class Product {
 
     createdAt?: any;
     updatedAt?: any;
-    userId: number;
 
     constructor() {
         this.code = null;
@@ -48,7 +47,6 @@ export class Product {
         this.primaryPhotoURL = null;
         this.thumbnailPhotoUrl = null;
         this.status = true;
-        this.userId = 1;
     }
 }
 

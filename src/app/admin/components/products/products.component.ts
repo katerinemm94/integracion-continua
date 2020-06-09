@@ -68,16 +68,15 @@ export class ProductsComponent extends Base implements OnInit, OnDestroy {
       columnDefs: [
         { targets: 0, style: 'imagen' },
       ],
-      order: [[7, 'desc'], [1, 'asc']],
+      order: [[6, 'desc'], [1, 'asc']],
       columns: [
         { orderable: false, width: '10%', },
         { width: '15%' },
         { width: '15%' },
         { width: '15%' },
         { width: '15%' },
-        { width: '10%' },
-        { width: '10%' },
-        { width: '10%' }
+        { width: '15%' },
+        { width: '15%' },
       ],
       pageLength: 10,
       language: this.dtLanguage,

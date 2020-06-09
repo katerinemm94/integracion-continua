@@ -39,7 +39,7 @@
                   <nz-form-item>
                     <nz-form-label [nzSpan]="null" nzRequired>Nombre</nz-form-label>
                     <nz-form-control [nzSpan]="null" nzHasFeedback>
-                      <input nz-input formControlName="description" placeholder="Ejm: Juguete Avengers" />
+                      <input nz-input formControlName="description" placeholder="Ejm: Pipeta exosto mofle" />
                       <nz-form-explain
                         *ngIf="validateForm.get('description')?.dirty && validateForm.get('description')?.errors">
                         <ng-container *ngIf="validateForm.get('description')?.hasError('required')">
@@ -59,7 +59,7 @@
                   <nz-form-item>
                     <nz-form-label [nzSpan]="null" nzRequired>Precio por unidad</nz-form-label>
                     <nz-form-control [nzSpan]="null" nzHasFeedback>
-                      <input nz-input formControlName="unitPrice" placeholder="Ejm: 10" />
+                      <input nz-input formControlName="unitPrice" placeholder="Ejm: 190000" />
                       <nz-form-explain
                         *ngIf="validateForm.get('unitPrice')?.dirty && validateForm.get('unitPrice')?.errors">
                         <ng-container *ngIf="validateForm.get('unitPrice')?.hasError('required')">
@@ -80,7 +80,7 @@
                   <nz-form-item>
                     <nz-form-label [nzSpan]="null" nzRequired>Cantidad de productos por caja</nz-form-label>
                     <nz-form-control [nzSpan]="null" nzHasFeedback>
-                      <input nz-input formControlName="quantityPerBox" placeholder="Ejm: 10" />
+                      <input nz-input formControlName="quantityPerBox" placeholder="Ejm: 3" />
                       <nz-form-explain
                         *ngIf="validateForm.get('quantityPerBox')?.dirty && validateForm.get('quantityPerBox')?.errors">
                         <ng-container *ngIf="validateForm.get('quantityPerBox')?.hasError('required')">
@@ -101,7 +101,7 @@
                   <nz-form-item>
                     <nz-form-label [nzSpan]="null" nzRequired>Precio por caja</nz-form-label>
                     <nz-form-control [nzSpan]="null" nzHasFeedback>
-                      <input nz-input formControlName="boxPrice" placeholder="Ejm: 10" />
+                      <input nz-input formControlName="boxPrice" placeholder="Ejm: 570000" />
                       <nz-form-explain
                         *ngIf="validateForm.get('boxPrice')?.dirty && validateForm.get('boxPrice')?.errors">
                         <ng-container *ngIf="validateForm.get('boxPrice')?.hasError('required')">
@@ -149,7 +149,7 @@
                     <nz-form-label [nzSpan]="null">Número de modelos por caja</nz-form-label>
 
                     <nz-form-control [nzSpan]="null" nzHasFeedback>
-                      <input nz-input type="number" formControlName="numberModels" placeholder="Ejm: 24.8" />
+                      <input nz-input type="number" formControlName="numberModels" placeholder="Ejm: 3" />
                       <nz-form-explain
                         *ngIf="validateForm.get('numberModels')?.dirty && validateForm.get('numberModels')?.errors">
                         <ng-container *ngIf="validateForm.get('numberModels')?.hasError('campoNumericoInvalido')">

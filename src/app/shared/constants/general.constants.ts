@@ -20,8 +20,8 @@ export const GENERAL = {
     UPDATE: 'UPDATE',
     DELETE: 'DELETE',
     IMAGES_DEFAULT: {
-        PRODUCTS: 'assets/img/products.png',
-        PROVIDERS: 'assets/img/providers.png'
+        PRODUCTS: 'assets/img/products_1.png',
+        PROVIDERS: 'assets/img/providers_1.png'
     }
 };
 
